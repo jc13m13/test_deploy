@@ -5,8 +5,9 @@ mongoose.Promise = global.Promise;
 const dbURI = process.env.MONGO_URL; 
 
 var promise = mongoose.connect(dbURI, {
-  useMongoClient: true,
+  /* this was deprecated:  useMongoClient: true, */ 
   /* other options */
+  useNewUrlParser: true,
 });
 
 mongoose.connection.on('connected', () => {
